@@ -9,23 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6f024a9b7d.js" crossorigin="anonymous"></script>
-    <script src="./main.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script defer src="./main.js"></script>
     <title>My Sky</title>
 </head>
 
 <body>
     <div class="search">
-        <input type="text" class="search__input" placeholder="Search location...">
+        <input type="text" class="search__input" placeholder="Search city">
         <i class="fa-solid fa-magnifying-glass fa-2x search__icon"></i>
     </div>
     <div class="container">
         <div class="container__top">
             <div class="info__left">
-                <div class="info__left--location heading-3 heading--bold">Berlin, DE</div>
+                <div class="info__left--location heading-3 heading--bold">Amsterdam</div>
                 <div class="info__left--date heading-4 heading--bold">2022-11-01</div>
                 <div class="info__left--time heading-4">13:00:24</div>
-                <div class="info__left--weather heading-1">Rain</div>
                 <div class="info__left--temperature heading-1 heading--bold">12.2°C</div>
+                <div class="info__left--weather heading-2">Rain</div>
                 <div class="info__left--weather-icon"></div>
             </div>
             <div class="info__right">
@@ -33,81 +34,81 @@
                     <i class="fa-solid fa-3x fa-temperature-three-quarters"></i>
                     <div class="info__right--text">
                         <div class="info__right--title heading-5 heading--bold">Feels like:</div>
-                        <div class="info__right--data heading-5" id="feels-like">11.4°C</div>
+                        <div class="info__right--data heading-4" id="feels-like">11.4°C</div>
                     </div>
                 </div>
                 <div class="info__right--details">
                     <i class="fa-solid fa-3x fa-droplet"></i>
                     <div class="info__right--text">
                         <div class="info__right--title heading-5 heading--bold">Humidity:</div>
-                        <div class="info__right--data heading-5" id="humidity">72%</div>
+                        <div class="info__right--data heading-4" id="humidity">72%</div>
                     </div>
                 </div>
                 <div class="info__right--details">
                     <i class="fa-solid fa-3x fa-cloud-rain"></i>
                     <div class="info__right--text">
                         <div class="info__right--title heading-5 heading--bold">Chance of rain:</div>
-                        <div class="info__right--data heading-5" id="rain">0%</div>
+                        <div class="info__right--data heading-4" id="rain">0%</div>
                     </div>
                 </div>
                 <div class="info__right--details">
                     <i class="fa-solid fa-3x fa-wind"></i>
                     <div class="info__right--text">
                         <div class="info__right--title heading-5 heading--bold">Wind speed:</div>
-                        <div class="info__right--data heading-5" id="wind">4.47km/h</div>
+                        <div class="info__right--data heading-4" id="wind">4.47km/h</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container__bottom">
-            <div class="weekday">
-                <div class="weekday__day heading-4 heading--bold">Friday</div>
+            <div class="weekday" id="day-1">
+                <div class="weekday__day heading-4 heading--bold" id="day-1-name">Friday</div>
                 <div class="weekday__weather heading-4">Clouds</div>
                 <div class="weekday__temp-top heading-4 heading--bold">11.9°C</div>
                 <div class="weekday__temp-bottom heading-5">9°C</div>
-                <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon">
+                <!-- <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon"> -->
             </div>
-            <div class="weekday">
-                <div class="weekday__day heading-4 heading--bold">Friday</div>
+            <div class="weekday" id="day-2">
+                <div class="weekday__day heading-4 heading--bold" id="day-2-name">Friday</div>
                 <div class="weekday__weather heading-4">Clouds</div>
                 <div class="weekday__temp-top heading-4 heading--bold">11.9°C</div>
                 <div class="weekday__temp-bottom heading-5">9°C</div>
-                <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon">
+                <!-- <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon"> -->
             </div>
-            <div class="weekday">
-                <div class="weekday__day heading-4 heading--bold">Friday</div>
+            <div class="weekday" id="day-3">
+                <div class="weekday__day heading-4 heading--bold" id="day-3-name">Friday</div>
                 <div class="weekday__weather heading-4">Clouds</div>
                 <div class="weekday__temp-top heading-4 heading--bold">11.9°C</div>
                 <div class="weekday__temp-bottom heading-5">9°C</div>
-                <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon">
+                <!-- <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon"> -->
             </div>
-            <div class="weekday">
-                <div class="weekday__day heading-4 heading--bold">Friday</div>
+            <div class="weekday" id="day-4">
+                <div class="weekday__day heading-4 heading--bold" id="day-4-name">Friday</div>
                 <div class="weekday__weather heading-4">Clouds</div>
                 <div class="weekday__temp-top heading-4 heading--bold">11.9°C</div>
                 <div class="weekday__temp-bottom heading-5">9°C</div>
-                <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon">
+                <!-- <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon"> -->
             </div>
-            <div class="weekday">
-                <div class="weekday__day heading-4 heading--bold">Friday</div>
+            <div class="weekday" id="day-5">
+                <div class="weekday__day heading-4 heading--bold" id="day-5-name">Friday</div>
                 <div class="weekday__weather heading-4">Clouds</div>
                 <div class="weekday__temp-top heading-4 heading--bold">11.9°C</div>
                 <div class="weekday__temp-bottom heading-5">9°C</div>
-                <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon">
+                <!-- <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon"> -->
             </div>
-            <div class="weekday">
-                <div class="weekday__day heading-4 heading--bold">Friday</div>
+            <div class="weekday" id="day-6">
+                <div class="weekday__day heading-4 heading--bold" id="day-6-name">Friday</div>
                 <div class="weekday__weather heading-4">Clouds</div>
                 <div class="weekday__temp-top heading-4 heading--bold">11.9°C</div>
                 <div class="weekday__temp-bottom heading-5">9°C</div>
-                <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon">
+                <!-- <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon"> -->
             </div>
-            <div class="weekday">
-                <div class="weekday__day heading-4 heading--bold">Friday</div>
+            <div class="weekday" id="day-7">
+                <div class="weekday__day heading-4 heading--bold" id="day-7-name">Friday</div>
                 <div class="weekday__weather heading-4">Clouds</div>
                 <div class="weekday__temp-top heading-4 heading--bold">11.9°C</div>
                 <div class="weekday__temp-bottom heading-5">9°C</div>
-                <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon">
+                <!-- <img src="src=" http://openweathermap.org/img/wn/04d@4x.png"" class="weekday__icon"> -->
             </div>
 
 
