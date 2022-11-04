@@ -1,4 +1,4 @@
-export const currentWeather = function (dataCity, dataWeather) {
+export const currentWeather = function (dataCity, dataWeather, container) {
   const cityName = document.querySelector('.info__left--location');
   const temperature = document.querySelector('.info__left--temperature');
   const description = document.querySelector('.info__left--weather');
@@ -90,4 +90,6 @@ export const currentWeather = function (dataCity, dataWeather) {
     maxTemps[i].textContent = getMaxTemp(i + 1);
     minTemps[i].textContent = getMinTemp(i + 1);
   }
+
+  container.innerHTML = '';
 };
