@@ -1,4 +1,4 @@
-export const currentWeather = function (dataCity, dataWeather, container) {
+export const currentWeather = function (dataCity, dataWeather, spinnerContainer) {
   const cityName = document.querySelector('.info__left--location');
   const temperature = document.querySelector('.info__left--temperature');
   const description = document.querySelector('.info__left--weather');
@@ -31,9 +31,14 @@ export const currentWeather = function (dataCity, dataWeather, container) {
   };
 
   const getTime = function () {
-    let timer = new Date();
-    time.textContent = timer.toLocaleTimeString('en-GB', { timeZone: `${dataWeather.timezone}` });
+    time.textContent = new Date().toLocaleTimeString('en-GB');
     setTimeout(getTime, 1000);
+  };
+  getTime();
+
+  const getDescription = function (i) {
+    const string = dataWeather.daily[i].weather[0].description;
+    return string[0].toUpperCase() + string.slice(1);
   };
 
   const getMarkup = function (i) {
@@ -42,11 +47,6 @@ export const currentWeather = function (dataCity, dataWeather, container) {
     const markup = `<img src="${url}" class="weekday__icon">`;
 
     return markup;
-  };
-
-  const getDescription = function (i) {
-    const string = dataWeather.daily[i].weather[0].description;
-    return string[0].toUpperCase() + string.slice(1);
   };
 
   const getMaxTemp = function (i) {
@@ -62,10 +62,9 @@ export const currentWeather = function (dataCity, dataWeather, container) {
   temperature.textContent = `${dataWeather.current.temp}°C`;
   description.textContent = descriptionData[0].toUpperCase() + descriptionData.slice(1);
   date.textContent = new Intl.DateTimeFormat('en-GB', options).format(now);
-  getTime();
   feelsLike.textContent = dataWeather.current.feels_like;
   humidity.textContent = dataWeather.current.humidity;
-  chanceOfRain.textContent = `${dataWeather.hourly[0].pop * 100}%`;
+  chanceOfRain.textContent = `${Math.floor(dataWeather.hourly[0].pop * 100)}%`;
   windSpeed.textContent = dataWeather.current.wind_speed;
 
   // Update day name for next 7 days
@@ -91,5 +90,5 @@ export const currentWeather = function (dataCity, dataWeather, container) {
     minTemps[i].textContent = getMinTemp(i + 1);
   }
 
-  container.innerHTML = '';
+  spinnerContainer.innerHTML = '';
 };

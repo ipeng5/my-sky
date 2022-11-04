@@ -10,6 +10,18 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   font-weight: 300;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 70%;
+  }
 }
 
 body {
@@ -17,7 +29,7 @@ body {
   color: white;
   background-image: url('../assets/bg.jpeg');
   background-size: cover;
-  background-position: left; // TODO position left or right on mobile, center on desktop
+  background-position: 25% 65%;
   background-repeat: no-repeat;
   min-height: 100vh;
   position: relative;

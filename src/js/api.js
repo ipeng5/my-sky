@@ -1,3 +1,11 @@
+const spinnerContainer = document.querySelector('.spinner-container');
+
+const renderSpinner = function () {
+  const markup = `<i class="fa fa-spinner fa-spin" style="font-size:40px"></i>`;
+  spinnerContainer.innerHTML = '';
+  spinnerContainer.insertAdjacentHTML('afterbegin', markup);
+};
+
 // Promisifying geolocation
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
@@ -33,8 +41,6 @@ export const getLocationCity = async function (lat, lon) {
     err => console.log(err);
   }
 };
-
-// Get city name based on user location
 
 // Get city name, lat, lon based on search input
 export const getCityInfo = async function (city) {
