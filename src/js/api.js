@@ -32,7 +32,7 @@ export const getLocationWeather = async function () {
 export const getLocationCity = async function (lat, lon) {
   try {
     const res = await fetch(
-      `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=5d2c21bb5b0794860fac445eda4259ea`,
+      `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=5d2c21bb5b0794860fac445eda4259ea`,
       { mode: 'cors' }
     );
     const dataCity = await res.json();
@@ -46,7 +46,7 @@ export const getLocationCity = async function (lat, lon) {
 export const getCityInfo = async function (city) {
   try {
     const res = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&units=metric&limit=1&appid=5d2c21bb5b0794860fac445eda4259ea`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&units=metric&limit=1&appid=5d2c21bb5b0794860fac445eda4259ea`,
       { mode: 'cors' }
     );
     const dataCity = await res.json();
