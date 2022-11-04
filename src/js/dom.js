@@ -11,18 +11,19 @@ export const currentWeather = function (dataCity, dataWeather) {
   const windSpeed = document.querySelector('#wind');
   const todayIconContainer = document.querySelector('.container__icon-top');
   const dailyIconContainers = document.querySelectorAll('.container__icon');
-
+  const dayNames = document.querySelectorAll('.weekday__day');
+  const dayDescriptions = document.querySelectorAll('.weekday__weather');
+  const maxTemps = document.querySelectorAll('.weekday__temp-top');
+  const minTemps = document.querySelectorAll('.weekday__temp-bottom');
   const now = new Date();
   const dayIndex = new Date().getDay();
-
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const options = {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
     weekday: 'short',
   };
-
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   const getDayName = function (index, day) {
     if (index + day >= 7) return days[index - 7 + day];
@@ -34,30 +35,6 @@ export const currentWeather = function (dataCity, dataWeather) {
     time.textContent = timer.toLocaleTimeString('en-GB', { timeZone: `${dataWeather.timezone}` });
     setTimeout(getTime, 1000);
   };
-
-  console.log(dataWeather); //TODO
-
-  // Update weather info for today
-  cityName.textContent = dataCity[0].name;
-  temperature.textContent = `${dataWeather.current.temp}°C`;
-  description.textContent = descriptionData[0].toUpperCase() + descriptionData.slice(1);
-  date.textContent = new Intl.DateTimeFormat('en-GB', options).format(now);
-  getTime();
-  feelsLike.textContent = dataWeather.current.feels_like;
-  humidity.textContent = dataWeather.current.humidity;
-  chanceOfRain.textContent = `${dataWeather.hourly[0].pop * 100}%`;
-  windSpeed.textContent = dataWeather.current.wind_speed;
-
-  const dayNames = document.querySelectorAll('.weekday__day');
-  const dayDescriptions = document.querySelectorAll('.weekday__weather');
-  const maxTemps = document.querySelectorAll('.weekday__temp-top');
-  const minTemps = document.querySelectorAll('.weekday__temp-bottom');
-
-  // Update day name for next 7 days
-  dayNames[0].textContent = 'Tomorrow';
-  for (let i = 1; i < 7; i++) {
-    dayNames[i].textContent = getDayName(dayIndex, i + 1);
-  }
 
   const getMarkup = function (i) {
     const iconNum = dataWeather.daily[i].weather[0].icon;
@@ -79,6 +56,23 @@ export const currentWeather = function (dataCity, dataWeather) {
   const getMinTemp = function (i) {
     return `${dataWeather.daily[i].temp.min}°C`;
   };
+
+  // Update weather info for today
+  cityName.textContent = dataCity[0].name;
+  temperature.textContent = `${dataWeather.current.temp}°C`;
+  description.textContent = descriptionData[0].toUpperCase() + descriptionData.slice(1);
+  date.textContent = new Intl.DateTimeFormat('en-GB', options).format(now);
+  getTime();
+  feelsLike.textContent = dataWeather.current.feels_like;
+  humidity.textContent = dataWeather.current.humidity;
+  chanceOfRain.textContent = `${dataWeather.hourly[0].pop * 100}%`;
+  windSpeed.textContent = dataWeather.current.wind_speed;
+
+  // Update day name for next 7 days
+  dayNames[0].textContent = 'Tomorrow';
+  for (let i = 1; i < 7; i++) {
+    dayNames[i].textContent = getDayName(dayIndex, i + 1);
+  }
 
   // Update today's weather icon
   todayIconContainer.innerHTML = '';
