@@ -62,8 +62,8 @@ export const currentWeather = function (dataCity, dataWeather, spinnerContainer)
   temperature.textContent = `${dataWeather.current.temp}°C`;
   description.textContent = descriptionData[0].toUpperCase() + descriptionData.slice(1);
   date.textContent = new Intl.DateTimeFormat('en-GB', options).format(now);
-  feelsLike.textContent = dataWeather.current.feels_like;
-  humidity.textContent = dataWeather.current.humidity;
+  feelsLike.textContent = `${dataWeather.current.feels_like}°C`;
+  humidity.textContent = `${dataWeather.current.humidity}%`;
   chanceOfRain.textContent = `${Math.floor(dataWeather.hourly[0].pop * 100)}%`;
   windSpeed.textContent = dataWeather.current.wind_speed;
 

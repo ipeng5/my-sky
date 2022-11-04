@@ -29,8 +29,9 @@ body {
   color: white;
   background-image: url('../assets/bg.jpeg');
   background-size: cover;
-  background-position: 25% 65%;
   background-repeat: no-repeat;
+  background-position: 25% 65%;
+  background-attachment: fixed;
   min-height: 100vh;
   position: relative;
 }
