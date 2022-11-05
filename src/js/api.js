@@ -1,6 +1,6 @@
 const renderError = function (msg) {
-  const spinnerContainer = document.querySelector('.spinner-container');
-  spinnerContainer.innerHTML = `<div heading-3>Something went wrong, ${msg}</div>`;
+  const errorContainer = document.querySelector('.info__left--location');
+  errorContainer.textContent = `Something went wrong! ${msg}`;
 };
 
 // Promisifying geolocation
@@ -22,11 +22,9 @@ export const getLocationWeather = async function () {
     if (!res.ok) throw new Error('Problem getting weather data');
     const dataWeather = await res.json();
     return dataWeather;
-  } catch {
-    err => {
-      console.error(err);
-      renderError(`Something went wrong, ${err.message}`);
-    };
+  } catch (err) {
+    console.error(err);
+    renderError(err.message);
   }
 };
 
@@ -36,14 +34,12 @@ export const getLocationCity = async function (lat, lon) {
       `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=5d2c21bb5b0794860fac445eda4259ea`,
       { mode: 'cors' }
     );
-    if (!res.ok) throw new Error('Problem getting location data');
+    if (!res.ok) throw new Error('Problem getting weather data');
     const dataCity = await res.json();
     return dataCity;
-  } catch {
-    err => {
-      console.error(err);
-      renderError(`Something went wrong, ${err.message}`);
-    };
+  } catch (err) {
+    console.error(err);
+    renderError(err.message);
   }
 };
 
@@ -54,11 +50,12 @@ export const getCityInfo = async function (city) {
       `https://api.openweathermap.org/geo/1.0/direct?q=${city}&units=metric&limit=1&appid=5d2c21bb5b0794860fac445eda4259ea`,
       { mode: 'cors' }
     );
-    if (!res.ok) throw new Error('Problem getting city data');
+    if (!res.ok) throw new Error(`${city} not found`);
     const dataCity = await res.json();
     return dataCity;
-  } catch {
-    err => console.error(err);
+  } catch (err) {
+    console.error(err);
+    renderError(err.message);
   }
 };
 
@@ -70,13 +67,10 @@ export const getSearchWeather = async function (data) {
       `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&exclude==hourly,minutesly,alerts&appid=5d2c21bb5b0794860fac445eda4259ea`,
       { mode: 'cors' }
     );
-    if (!res.ok) throw new Error('Problem getting weather data');
     const dataWeather = await res.json();
     return dataWeather;
-  } catch {
-    err => {
-      console.error(err);
-      renderError(`Something went wrong, ${err.message}`);
-    };
+  } catch (err) {
+    console.error(err);
+    renderError('Problem getting weather data');
   }
 };
