@@ -130,6 +130,7 @@
 
   &__icon {
     width: 10rem;
+
     @include respond(tab-land) {
       width: 90%;
       height: 90%;
@@ -147,9 +148,6 @@
       width: 14rem;
       text-align: center;
     }
-  }
-
-  &__temp-bottom {
   }
 }
 
