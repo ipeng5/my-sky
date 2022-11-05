@@ -31,6 +31,7 @@ export const currentWeather = function (dataCity, dataWeather, spinnerContainer)
       weekday: 'short',
     };
 
+    console.log(dataWeather);
     const getDayName = function (index, day) {
       if (index + day >= 7) return days[index - 7 + day];
       return days[index + day];
@@ -70,7 +71,7 @@ export const currentWeather = function (dataCity, dataWeather, spinnerContainer)
     date.textContent = new Intl.DateTimeFormat('en-GB', options).format(now);
     feelsLike.textContent = `${dataWeather.current.feels_like}°C`;
     humidity.textContent = `${dataWeather.current.humidity}%`;
-    chanceOfRain.textContent = `${Math.round(dataWeather.hourly[0].pop * 100)}%`;
+    chanceOfRain.textContent = `${Math.round(dataWeather.daily[0].pop * 100)}%`;
     windSpeed.textContent = `${(dataWeather.current.wind_speed * 3.6).toFixed(1)} km/h`;
 
     // Update day name for next 7 days
