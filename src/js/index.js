@@ -5,7 +5,7 @@ import * as dom from './dom';
 const searchBar = document.querySelector('.search__input');
 const spinnerContainer = document.querySelector('.spinner-container');
 
-searchBar.addEventListener('change', async () => {
+searchBar.addEventListener('change', async function () {
   renderSpinner();
   const dataCity = await api.getCityInfo(searchBar.value);
   const dataWeather = await api.getSearchWeather(dataCity);
