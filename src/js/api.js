@@ -11,7 +11,7 @@ const getPosition = function () {
 };
 
 // Consuming weather info based on location automatically
-export const getLocationWeather = async function () {
+export const getLocationWeather = async function (spinnerContainer) {
   try {
     const pos = await getPosition();
     const { latitude: lat, longitude: lon } = pos.coords;
@@ -23,12 +23,13 @@ export const getLocationWeather = async function () {
     const dataWeather = await res.json();
     return dataWeather;
   } catch (err) {
+    spinnerContainer.innerHTML = '';
     console.error(err);
     renderError(err.message);
   }
 };
 
-export const getLocationCity = async function (lat, lon) {
+export const getLocationCity = async function (lat, lon, spinnerContainer) {
   try {
     const res = await fetch(
       `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=5d2c21bb5b0794860fac445eda4259ea`,
@@ -38,13 +39,14 @@ export const getLocationCity = async function (lat, lon) {
     const dataCity = await res.json();
     return dataCity;
   } catch (err) {
+    spinnerContainer.innerHTML = '';
     console.error(err);
     renderError(err.message);
   }
 };
 
 // Get city name, lat, lon based on search input
-export const getCityInfo = async function (city) {
+export const getCityInfo = async function (city, spinnerContainer) {
   try {
     const res = await fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${city}&units=metric&limit=1&appid=5d2c21bb5b0794860fac445eda4259ea`,
@@ -54,13 +56,14 @@ export const getCityInfo = async function (city) {
     const dataCity = await res.json();
     return dataCity;
   } catch (err) {
+    spinnerContainer.innerHTML = '';
     console.error(err);
     renderError(err.message);
   }
 };
 
 // Get weather info based on search
-export const getSearchWeather = async function (data) {
+export const getSearchWeather = async function (data, spinnerContainer) {
   try {
     const { lat, lon } = data[0];
     const res = await fetch(
@@ -70,6 +73,7 @@ export const getSearchWeather = async function (data) {
     const dataWeather = await res.json();
     return dataWeather;
   } catch (err) {
+    spinnerContainer.innerHTML = '';
     console.error(err);
     renderError('Problem getting weather data');
   }
