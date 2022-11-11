@@ -149,6 +149,14 @@
       text-align: center;
     }
   }
+
+  &__temp-bottom {
+    padding-bottom: 2rem;
+
+    @include respond(tab-port) {
+      padding-bottom: 0;
+    }
+  }
 }
 
 ::placeholder {
