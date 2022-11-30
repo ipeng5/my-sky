@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "compile:sass": "node-sass src/styles/main.scss dist/main.css",
     "watch": "webpack --progress --watch",
     "build": "webpack"
   },
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/ipeng5/weather-app#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "node-sass": "^7.0.3",
     "sass": "^1.55.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",

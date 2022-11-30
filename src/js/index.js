@@ -1,4 +1,3 @@
-import '../styles/main.scss';
 import * as api from './api';
 import * as dom from './dom';
 

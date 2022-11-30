@@ -1,0 +1,189 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-weight: 300; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 70%; } }
+
+body {
+  font-family: montserrat, sans-serif;
+  color: white;
+  background-image: url("bg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 65%;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative; }
+
+.heading-1 {
+  font-size: 7.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .heading-1 {
+      font-size: 6rem; } }
+
+.heading-2 {
+  font-size: 4.5rem; }
+
+.heading-3 {
+  font-size: 3.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .heading-3 {
+      font-size: 3.2rem; } }
+
+.heading-4 {
+  font-size: 2rem; }
+  @media only screen and (max-width: 37.5em) {
+    .heading-4 {
+      font-size: 1.7rem; } }
+
+.heading-5 {
+  font-size: 1.6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .heading-5 {
+      font-size: 1.4rem; } }
+
+.heading--bold {
+  font-weight: 600; }
+  @media only screen and (max-width: 37.5em) {
+    .heading--bold {
+      font-weight: 500; } }
+
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.fa-solid {
+  max-width: 48px;
+  max-height: 48px;
+  overflow: hidden; }
+
+.search {
+  padding: 3rem 5rem; }
+  @media only screen and (max-width: 75em) {
+    .search {
+      padding: 3rem; } }
+  .search__input {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    color: inherit;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    margin-right: 10px; }
+    .search__input:focus {
+      outline: none; }
+  .search__icon {
+    cursor: pointer; }
+
+.fa-3x {
+  width: 3.5rem;
+  text-align: center; }
+
+.container {
+  height: 75vh;
+  padding: 0 5rem 10rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  @media only screen and (max-width: 75em) {
+    .container {
+      padding: 0 3rem 10rem 3rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .container {
+      height: 80vh;
+      padding-bottom: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .container {
+      height: 88vh;
+      padding-bottom: 3rem; } }
+  .container__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    gap: 2rem; }
+  .container__bottom {
+    display: flex;
+    justify-content: space-between; }
+    @media only screen and (max-width: 56.25em) {
+      .container__bottom {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; } }
+
+.info__right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; }
+  .info__right--details {
+    display: flex;
+    gap: 0.8rem; }
+
+.weekday {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  height: 6rem; }
+  @media only screen and (max-width: 56.25em) {
+    .weekday {
+      flex-direction: row;
+      width: 80%;
+      justify-content: space-between; } }
+  @media only screen and (max-width: 37.5em) {
+    .weekday {
+      height: 5.5rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .weekday__day {
+      width: 12rem; } }
+  .weekday__weather {
+    margin-bottom: 1rem; }
+    @media only screen and (max-width: 56.25em) {
+      .weekday__weather {
+        width: 12rem;
+        margin-bottom: 0;
+        text-align: center; } }
+    @media only screen and (max-width: 37.5em) {
+      .weekday__weather {
+        display: none; } }
+  .weekday__icon {
+    width: 10rem; }
+    @media only screen and (max-width: 75em) {
+      .weekday__icon {
+        width: 90%;
+        height: 90%; } }
+    @media only screen and (max-width: 56.25em) {
+      .weekday__icon {
+        width: 6rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .weekday__icon {
+        width: 4rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .weekday__temp-top {
+      width: 14rem;
+      text-align: center; } }
+  .weekday__temp-bottom {
+    padding-bottom: 2rem; }
+    @media only screen and (max-width: 56.25em) {
+      .weekday__temp-bottom {
+        padding-bottom: 0; } }
+
+::placeholder {
+  color: #ccc; }
