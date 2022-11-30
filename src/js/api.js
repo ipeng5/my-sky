@@ -25,7 +25,20 @@ export const getLocationWeather = async function (spinnerContainer) {
   } catch (err) {
     spinnerContainer.innerHTML = '';
     console.error(err);
-    renderError(err.message);
+    if (err.code === 1) {
+      try {
+        const res = await fetch(
+          `https://api.openweathermap.org/data/3.0/onecall?lat=52.3727598&lon=4.8936041&units=metric&exclude==hourly,minutesly,alerts&appid=5d2c21bb5b0794860fac445eda4259ea`,
+          { mode: 'cors' }
+        );
+        const dataWeather = await res.json();
+        return dataWeather;
+      } catch (err) {
+       spinnerContainer.innerHTML = '';
+       console.error(err);
+       renderError(err.message);
+      }
+    }
   }
 };
 
@@ -54,6 +67,7 @@ export const getCityInfo = async function (city, spinnerContainer) {
     );
     if (!res.ok) throw new Error(`${city} not found`);
     const dataCity = await res.json();
+    console.log(dataCity);
     return dataCity;
   } catch (err) {
     spinnerContainer.innerHTML = '';
